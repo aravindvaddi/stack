@@ -19,6 +19,7 @@ typedef struct stack stack;
 
 void s_print(stack *s);
 int s_length(stack *s);
+int s_exists(stack *s);
 
 /* stack core functions */
 int s_empty (stack *s);

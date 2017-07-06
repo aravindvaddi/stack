@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "stack.h"
 
@@ -24,6 +25,13 @@ void s_print (stack *s)
 		temp = temp->next;
 	}
 	printf("\n");
+}
+
+/* function to check if stack exists */
+
+int s_exists (stack *s)
+{
+	return (s) ? 1 : 0;
 }
 
 /* function to check if stack is empty */
@@ -67,8 +75,8 @@ void s_push (stack *s, int data)
 {
 	node *temp = malloc(sizeof *temp);
 	temp->data = data;
-	temp->next = stack->head;
-	stack->head = temp;
+	temp->next = s->head;
+	s->head = temp;
 }
 
 /* function to allocate memory to a given reference to a stack pointer */
@@ -76,7 +84,7 @@ void s_push (stack *s, int data)
 void s_create (stack **s)
 {
 	*s = malloc(sizeof **s);
-	s->head = NULL;
+	(*s)->head = NULL;
 }
 
 /* function to deallocate memory and destroy a stack */
