@@ -26,6 +26,33 @@ void s_print (stack *s)
 	printf("\n");
 }
 
+/* function to check if stack is empty */
+
+int s_empty (stack *s)
+{
+	return (!s->head) ? 1 : 0;
+}
+
+/* function to return value of element on top of stack */
+
+int s_top (stack *s)
+{
+	if(s_empty(s))
+		return -1;
+
+	return s->head->data;
+}
+
+/* function to push element onto the stack */
+
+void s_push (stack *s, int data)
+{
+	node *temp = malloc(sizeof *temp);
+	temp->data = data;
+	temp->next = stack->head;
+	stack->head = temp;
+}
+
 /* function to allocate memory to a given reference to a stack pointer */
 
 void s_create (stack **s)
