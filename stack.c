@@ -43,6 +43,24 @@ int s_top (stack *s)
 	return s->head->data;
 }
 
+/* function to pop element from top of stack */
+
+void s_pop (stack *s)
+{
+	node *temp;
+
+	if(s_empty(s))
+		return;
+
+	temp = s->head;
+	s->head = s->head->next;
+
+	temp->data = 0;
+	temp->next = NULL;
+	free(temp);
+	temp = NULL;
+}
+
 /* function to push element onto the stack */
 
 void s_push (stack *s, int data)
@@ -59,4 +77,18 @@ void s_create (stack **s)
 {
 	*s = malloc(sizeof **s);
 	s->head = NULL;
+}
+
+/* function to deallocate memory and destroy a stack */
+
+void s_destroy (stack **s)
+{
+	stack *t = *s;
+
+	while(!s_empty(t))
+		s_pop(t);
+
+	free(t);
+	t = NULL;
+	*s = NULL;
 }
