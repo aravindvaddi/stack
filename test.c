@@ -16,6 +16,7 @@ int main ()
 
 	printf("Before pushing:\n");
 	s_print(s);
+	printf("Top of stack: %d\n", s_top(s));
 	printf("Length: %d\n\n", s_length(s));
 
 	printf("Pushing 10 elements:\n");
@@ -24,6 +25,7 @@ int main ()
 	{
 		s_push(s, i);
 		s_print(s);
+		printf("Top of stack: %d\n", s_top(s));
 		printf("Length: %d\n\n", s_length(s));
 	}
 
@@ -32,11 +34,13 @@ int main ()
 	{
 		s_pop(s);
 		s_print(s);
+		printf("Top of stack: %d\n", s_top(s));
 		printf("Length: %d\n\n", s_length(s));
 	}
 
 	printf("After popping:\n");
 	s_print(s);
+	printf("Top of stack: %d\n", s_top(s));
 	printf("Length: %d\n\n", s_length(s));
 
 	printf("Before destroying:\n");
